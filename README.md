@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Lebenix Landing
 
-## Getting Started
+Landing page for [Lebenix](https://www.lebenix.com) — B2B SaaS platform for nutritionists in LATAM.
 
-First, run the development server:
+**Backend:** [lebenix/api](https://github.com/lebenix/api)
+
+## Stack
+
+| | |
+|---|---|
+| Framework | Next.js 15 (App Router, SSG) |
+| Styling | Tailwind CSS v4 |
+| Blog | MDX via next-mdx-remote + gray-matter |
+| Font | DM Sans (matches the app) |
+| Deploy | Vercel → www.lebenix.com |
+
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+App runs at http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+app/
+├── page.tsx              # Home
+├── blog/
+│   ├── page.tsx          # Blog index
+│   └── [slug]/page.tsx   # Individual post
+├── nosotros/page.tsx     # Founder page
+├── contacto/page.tsx     # Contact page
+├── sitemap.ts            # Auto-generated sitemap.xml
+└── robots.ts             # robots.txt
+components/
+├── Navbar.tsx
+├── Hero.tsx
+├── Problem.tsx
+├── Features.tsx
+├── CtaBanner.tsx
+└── Footer.tsx
+content/blog/             # MDX articles (.mdx files)
+lib/
+└── posts.ts              # Blog utilities (read, parse, format)
+```
 
-## Learn More
+## Blog
 
-To learn more about Next.js, take a look at the following resources:
+Articles live in `content/blog/` as `.mdx` files with frontmatter:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```mdx
+---
+title: "Title of the article"
+description: "One-line summary for SEO and listing."
+date: "2026-08-07"
+readingTime: "6 min"
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Article content here...
+```
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Adding a new file automatically includes it in the blog index and sitemap.
