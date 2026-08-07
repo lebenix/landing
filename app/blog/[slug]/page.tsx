@@ -5,7 +5,7 @@ import Link from "next/link";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { getAllPosts, getPost } from "@/lib/posts";
+import { getAllPosts, getPost, formatDate } from "@/lib/posts";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -39,8 +39,8 @@ export default async function PostPage({ params }: Props) {
           >
             ← Volver al blog
           </Link>
-          <p className="text-sm text-gray-400 mb-3">
-            {post.date} · {post.readingTime} de lectura
+          <p className="text-xs text-gray-400 font-medium uppercase tracking-wide mb-3">
+            {formatDate(post.date)} · {post.readingTime} de lectura
           </p>
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
             {post.title}

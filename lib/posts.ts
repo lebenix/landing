@@ -3,6 +3,16 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
+// "2026-08-07" → "7 de agosto de 2026" (no UTC shift — construye fecha local)
+export function formatDate(isoDate: string): string {
+  const [year, month, day] = isoDate.split("-").map(Number);
+  return new Intl.DateTimeFormat("es-PE", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  }).format(new Date(year, month - 1, day));
+}
+
 const POSTS_DIR = path.join(process.cwd(), "content/blog");
 
 export interface PostMeta {

@@ -3,12 +3,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { getAllPosts } from "@/lib/posts";
+import { getAllPosts, formatDate } from "@/lib/posts";
 
 export const metadata: Metadata = {
   title: "Blog — Lebenix",
   description:
-    "Artículos sobre nutrición clínica, tecnología y gestión de consultorios para nutricionistas en LATAM.",
+    "Recursos para nutricionistas en LATAM: práctica clínica, tecnología y gestión del consultorio.",
 };
 
 export default function BlogPage() {
@@ -17,30 +17,34 @@ export default function BlogPage() {
   return (
     <>
       <Navbar />
-      <main className="max-w-3xl mx-auto px-6 pt-32 pb-20">
+      <main className="max-w-3xl mx-auto px-6 pt-32 pb-24 min-h-[80vh]">
         <h1 className="text-4xl font-bold text-gray-900 mb-3">Blog</h1>
-        <p className="text-lg text-gray-500 mb-12">
-          Nutrición, tecnología y gestión de consultorios para profesionales en
-          LATAM.
+        <p className="text-lg text-gray-500 mb-14">
+          Recursos para nutricionistas en LATAM: práctica clínica, tecnología y gestión del consultorio.
         </p>
 
         {posts.length === 0 ? (
           <p className="text-gray-400">Próximamente...</p>
         ) : (
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col divide-y divide-gray-100">
             {posts.map((post) => (
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
-                className="group block border-b border-gray-100 pb-8"
+                className="group py-8 flex flex-col gap-2 hover:pl-1 transition-all duration-150"
               >
-                <p className="text-sm text-gray-400 mb-2">
-                  {post.date} · {post.readingTime} de lectura
+                <p className="text-xs text-gray-400 font-medium uppercase tracking-wide">
+                  {formatDate(post.date)} · {post.readingTime} de lectura
                 </p>
-                <h2 className="text-xl font-bold text-gray-900 group-hover:text-[#3BA58F] transition-colors mb-2">
+                <h2 className="text-xl font-bold text-gray-900 group-hover:text-[#3BA58F] transition-colors leading-snug">
                   {post.title}
                 </h2>
-                <p className="text-gray-500">{post.description}</p>
+                <p className="text-gray-500 text-sm leading-relaxed">
+                  {post.description}
+                </p>
+                <span className="text-[#3BA58F] text-sm font-medium mt-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                  Leer artículo →
+                </span>
               </Link>
             ))}
           </div>

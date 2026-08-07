@@ -10,12 +10,20 @@ export default function Navbar() {
           <Image src="/logo.png" alt="Lebenix" width={32} height={32} className="rounded-[9px]" />
           <span className="text-white font-bold text-xl">Lebenix</span>
         </Link>
-        <a
-          href="https://app.lebenix.com/registro"
-          className="bg-[#3BA58F] hover:bg-[#339980] text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors"
-        >
-          Probar gratis
-        </a>
+        <div className="flex items-center gap-6">
+          <Link href="/blog" className="hidden md:block text-white/60 hover:text-white text-sm transition-colors">
+            Blog
+          </Link>
+          <Link href="/nosotros" className="hidden md:block text-white/60 hover:text-white text-sm transition-colors">
+            Nosotros
+          </Link>
+          <a
+            href="https://app.lebenix.com/registro"
+            className="bg-[#3BA58F] hover:bg-[#339980] text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors"
+          >
+            Probar gratis
+          </a>
+        </div>
       </div>
     </nav>
   );

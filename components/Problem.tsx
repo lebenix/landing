@@ -25,9 +25,9 @@ export default function Problem() {
           Los nutricionistas merecen mejores herramientas
         </h2>
         <p className="text-lg text-gray-500 max-w-2xl mx-auto mb-12">
-          Hoy gestionas tu práctica con 4 o 5 herramientas distintas. El
-          resultado: tiempo perdido, errores evitables y una imagen poco
-          profesional frente a tus pacientes.
+          Hoy gestionas tu práctica con varias herramientas que no están diseñadas
+          para trabajar juntas. El resultado: tiempo perdido, errores evitables
+          y una imagen poco profesional frente a tus pacientes.
         </p>
         <div className="grid md:grid-cols-3 gap-6 text-left">
           {PROBLEMS.map((problem) => (
