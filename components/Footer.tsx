@@ -49,7 +49,7 @@ export default function Footer() {
         {/* Bottom row */}
         <div className="border-t border-white/10 pt-6 text-xs flex flex-col md:flex-row md:items-center md:justify-between gap-3">
           <span>© {new Date().getFullYear()} Lebenix. Todos los derechos reservados.</span>
-          <span>hola@lebenix.com</span>
+          <span>contacto@lebenix.com</span>
         </div>
       </div>
     </footer>
