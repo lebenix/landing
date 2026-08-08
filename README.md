@@ -2,8 +2,6 @@
 
 Landing page for [Lebenix](https://www.lebenix.com) — B2B SaaS platform for nutritionists in LATAM.
 
-**Backend:** [lebenix/api](https://github.com/lebenix/api)
-
 ## Stack
 
 | | |
