@@ -4,7 +4,7 @@ const FEATURES = [
     icon: "📅",
     title: "Agenda inteligente",
     description:
-      "Organiza tus consultas sin complicaciones. Vistas de semana, día y mes, integración con Google Calendar y videollamadas para consultas online.",
+      "Organiza tus consultas sin complicaciones. Vistas de semana, día y mes. Conecta con Google Calendar para sincronizar citas y generar enlaces de Google Meet — Lebenix solo accede al calendario propio que crea para la integración.",
   },
   {
     icon: "🫀",
