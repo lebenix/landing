@@ -36,10 +36,10 @@ export default function Footer() {
               <Link href="/blog" className="hover:text-white transition-colors">
                 Blog
               </Link>
-              <Link href="/nosotros" className="hover:text-white transition-colors">
+              <Link href="/about" className="hover:text-white transition-colors">
                 Nosotros
               </Link>
-              <Link href="/contacto" className="hover:text-white transition-colors">
+              <Link href="/contact" className="hover:text-white transition-colors">
                 Contacto
               </Link>
             </div>
