@@ -7,11 +7,11 @@ export const metadata: Metadata = {
   title: "Términos de Servicio — Lebenix",
   description:
     "Condiciones de uso del software Lebenix para nutricionistas.",
-  alternates: { canonical: "https://www.lebenix.com/terms" },
+  alternates: { canonical: "https://www.lebenix.com/terminos" },
   openGraph: {
     title: "Términos de Servicio — Lebenix",
     description: "Condiciones de uso del software Lebenix para nutricionistas.",
-    url: "https://www.lebenix.com/terms",
+    url: "https://www.lebenix.com/terminos",
     siteName: "Lebenix",
     locale: "es_PE",
     type: "website",
@@ -41,7 +41,8 @@ export default function TermsPage() {
 
       {/* Content */}
       <section className="py-20 px-6">
-        <div className="max-w-3xl mx-auto prose prose-gray prose-lg max-w-none">
+        <div className="max-w-3xl mx-auto">
+        <div className="prose prose-gray prose-lg max-w-none">
 
           <p>
             Al crear una cuenta en Lebenix aceptas estos Términos de Servicio.
@@ -163,6 +164,7 @@ export default function TermsPage() {
             Para cualquier consulta sobre estos términos escríbenos a{" "}
             <a href="mailto:contacto@lebenix.com">contacto@lebenix.com</a>.
           </p>
+        </div>
         </div>
       </section>
 

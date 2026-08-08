@@ -7,12 +7,12 @@ export const metadata: Metadata = {
   title: "Política de Privacidad — Lebenix",
   description:
     "Cómo Lebenix recopila, usa y protege la información de tus pacientes y tu centro nutricional.",
-  alternates: { canonical: "https://www.lebenix.com/privacy" },
+  alternates: { canonical: "https://www.lebenix.com/privacidad" },
   openGraph: {
     title: "Política de Privacidad — Lebenix",
     description:
       "Cómo Lebenix recopila, usa y protege la información de tus pacientes y tu centro nutricional.",
-    url: "https://www.lebenix.com/privacy",
+    url: "https://www.lebenix.com/privacidad",
     siteName: "Lebenix",
     locale: "es_PE",
     type: "website",
@@ -42,7 +42,8 @@ export default function PrivacyPage() {
 
       {/* Content */}
       <section className="py-20 px-6">
-        <div className="max-w-3xl mx-auto prose prose-gray prose-lg max-w-none">
+        <div className="max-w-3xl mx-auto">
+        <div className="prose prose-gray prose-lg max-w-none">
 
           <p>
             Lebenix (&ldquo;nosotros&rdquo;, &ldquo;nuestro&rdquo;) opera el software de gestión para
@@ -189,6 +190,7 @@ export default function PrivacyPage() {
             escríbenos a{" "}
             <a href="mailto:contacto@lebenix.com">contacto@lebenix.com</a>.
           </p>
+        </div>
         </div>
       </section>
 
