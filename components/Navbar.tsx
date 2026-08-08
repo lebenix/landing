@@ -18,7 +18,7 @@ export default function Navbar() {
             Nosotros
           </Link>
           <a
-            href="https://app.lebenix.com/registro"
+            href="https://app.lebenix.com/register"
             className="bg-[#3BA58F] hover:bg-[#339980] text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors"
           >
             Probar gratis

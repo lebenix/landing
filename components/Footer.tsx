@@ -24,7 +24,7 @@ export default function Footer() {
           <div className="flex gap-12 text-sm">
             <div className="flex flex-col gap-3">
               <span className="text-white font-semibold text-xs uppercase tracking-wider mb-1">Producto</span>
-              <a href="https://app.lebenix.com/registro" className="hover:text-white transition-colors">
+              <a href="https://app.lebenix.com/register" className="hover:text-white transition-colors">
                 Probar gratis
               </a>
               <a href="https://app.lebenix.com" className="hover:text-white transition-colors">

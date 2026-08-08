@@ -20,7 +20,7 @@ export default function Hero() {
           nutricionistas en LATAM.
         </p>
         <a
-          href="https://app.lebenix.com/registro"
+          href="https://app.lebenix.com/register"
           className="inline-block bg-[#3BA58F] hover:bg-[#339980] text-white text-lg font-semibold px-8 py-4 rounded-xl transition-colors"
         >
           Probar gratis
