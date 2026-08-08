@@ -9,6 +9,16 @@ export const metadata: Metadata = {
   title: "Blog — Lebenix",
   description:
     "Recursos para nutricionistas en LATAM: práctica clínica, tecnología y gestión del consultorio.",
+  alternates: { canonical: "https://www.lebenix.com/blog" },
+  openGraph: {
+    title: "Blog — Lebenix",
+    description: "Recursos para nutricionistas en LATAM: práctica clínica, tecnología y gestión del consultorio.",
+    url: "https://www.lebenix.com/blog",
+    siteName: "Lebenix",
+    locale: "es_PE",
+    type: "website",
+  },
+  twitter: { card: "summary_large_image", title: "Blog — Lebenix" },
 };
 
 export default function BlogPage() {

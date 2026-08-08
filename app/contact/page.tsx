@@ -6,6 +6,16 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: "Contacto — Lebenix",
   description: "Escríbenos para soporte, prensa o cualquier consulta sobre Lebenix.",
+  alternates: { canonical: "https://www.lebenix.com/contacto" },
+  openGraph: {
+    title: "Contacto — Lebenix",
+    description: "Escríbenos para soporte, prensa o cualquier consulta sobre Lebenix.",
+    url: "https://www.lebenix.com/contacto",
+    siteName: "Lebenix",
+    locale: "es_PE",
+    type: "website",
+  },
+  twitter: { card: "summary_large_image", title: "Contacto — Lebenix" },
 };
 
 export default function ContactoPage() {

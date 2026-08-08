@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Lebenix — Software para nutricionistas en LATAM",
   description:
     "Gestiona pacientes, agenda consultas, registra mediciones y crea planes alimenticios. Todo en un solo lugar.",
+  alternates: {
+    canonical: "https://www.lebenix.com",
+  },
   openGraph: {
     title: "Lebenix — Software para nutricionistas en LATAM",
     description:
@@ -13,6 +16,12 @@ export const metadata: Metadata = {
     siteName: "Lebenix",
     locale: "es_PE",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Lebenix — Software para nutricionistas en LATAM",
+    description:
+      "Gestiona pacientes, agenda consultas, registra mediciones y crea planes alimenticios. Todo en un solo lugar.",
   },
 };
 

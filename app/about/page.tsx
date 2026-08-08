@@ -8,6 +8,16 @@ export const metadata: Metadata = {
   title: "Nosotros — Lebenix",
   description:
     "La historia detrás de Lebenix y por qué fue construido para los nutricionistas en LATAM.",
+  alternates: { canonical: "https://www.lebenix.com/nosotros" },
+  openGraph: {
+    title: "Nosotros — Lebenix",
+    description: "La historia detrás de Lebenix y por qué fue construido para los nutricionistas en LATAM.",
+    url: "https://www.lebenix.com/nosotros",
+    siteName: "Lebenix",
+    locale: "es_PE",
+    type: "website",
+  },
+  twitter: { card: "summary_large_image", title: "Nosotros — Lebenix" },
 };
 
 export default function NosotrosPage() {
