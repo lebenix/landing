@@ -8,7 +8,7 @@ export default function Hero() {
 
       <div className="max-w-4xl mx-auto text-center relative z-10">
         <span className="inline-block bg-[#3BA58F]/15 text-[#3BA58F] text-sm font-medium px-3 py-1 rounded-full mb-6">
-          En beta — sé de los primeros en usarlo
+          Lebenix · En beta — sé de los primeros en usarlo
         </span>
         <h1 className="text-5xl md:text-6xl font-bold text-white leading-tight mb-6">
           Tu consulta nutricional,{" "}
