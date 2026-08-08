@@ -76,7 +76,7 @@ export default async function PostPage({ params }: Props) {
               Lebenix es el software diseñado para nutricionistas en LATAM.
             </p>
             <a
-              href="https://app.lebenix.com/registro"
+              href="https://app.lebenix.com/register"
               className="inline-block bg-[#3BA58F] hover:bg-[#339980] text-white font-semibold px-6 py-3 rounded-xl transition-colors"
             >
               Probar gratis

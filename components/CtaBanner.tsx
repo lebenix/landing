@@ -11,7 +11,7 @@ export default function CtaBanner() {
           minutos.
         </p>
         <a
-          href="https://app.lebenix.com/registro"
+          href="https://app.lebenix.com/register"
           className="inline-block bg-white text-[#3BA58F] font-semibold text-lg px-8 py-4 rounded-xl hover:bg-gray-50 transition-colors"
         >
           Crear cuenta gratis
