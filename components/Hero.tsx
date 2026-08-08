@@ -11,7 +11,7 @@ export default function Hero() {
           Lebenix · En beta — sé de los primeros en usarlo
         </span>
         <h1 className="text-5xl md:text-6xl font-bold text-white leading-tight mb-6">
-          Tu consulta nutricional,{" "}
+          Lebenix: tu consulta nutricional,{" "}
           <span className="text-[#3BA58F]">toda en un solo lugar</span>
         </h1>
         <p className="text-xl text-white/50 max-w-2xl mx-auto mb-10">
