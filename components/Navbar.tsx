@@ -14,7 +14,7 @@ export default function Navbar() {
           <Link href="/blog" className="hidden md:block text-white/60 hover:text-white text-sm transition-colors">
             Blog
           </Link>
-          <Link href="/about" className="hidden md:block text-white/60 hover:text-white text-sm transition-colors">
+          <Link href="/nosotros" className="hidden md:block text-white/60 hover:text-white text-sm transition-colors">
             Nosotros
           </Link>
           <a
