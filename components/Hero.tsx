@@ -14,10 +14,10 @@ export default function Hero() {
           Lebenix: tu consulta nutricional,{" "}
           <span className="text-[#3BA58F]">toda en un solo lugar</span>
         </h1>
-        <p className="text-xl text-white/50 max-w-2xl mx-auto mb-10">
+        <p className="text-xl text-white/70 max-w-2xl mx-auto mb-10">
+          Lebenix es una plataforma de gestión clínica para nutricionistas.
           Gestiona pacientes, agenda consultas, registra mediciones y crea
-          planes alimenticios — sin saltar entre apps. Diseñado para
-          nutricionistas en LATAM.
+          planes alimenticios — todo en un solo lugar, diseñado para LATAM.
         </p>
         <a
           href="https://app.lebenix.com/register"
