@@ -23,6 +23,9 @@ export const metadata: Metadata = {
     description:
       "Gestiona pacientes, agenda consultas, registra mediciones y crea planes alimenticios. Todo en un solo lugar.",
   },
+  verification: {
+    google: "iFTF6GiinEMPcgm_SrwXOtlhpFc045_UgnM2cu5bSpQ",
+  },
 };
 
 export default function RootLayout({
