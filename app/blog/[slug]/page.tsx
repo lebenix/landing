@@ -44,12 +44,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function PostPage({ params }: Props) {
   const { slug } = await params;
 
+  let post: ReturnType<typeof getPost>;
   try {
-    const post = getPost(slug);
-    return (
-      <>
-        <Navbar />
-        <main className="max-w-3xl mx-auto px-6 pt-32 pb-20">
+    post = getPost(slug);
+  } catch {
+    notFound();
+  }
+
+  return (
+    <>
+      <Navbar />
+      <main className="max-w-3xl mx-auto px-6 pt-32 pb-20">
           <Link
             href="/blog"
             className="text-sm text-[#3BA58F] hover:underline mb-8 inline-block"
@@ -82,11 +87,8 @@ export default async function PostPage({ params }: Props) {
               Probar gratis
             </a>
           </div>
-        </main>
-        <Footer />
-      </>
-    );
-  } catch {
-    notFound();
-  }
+      </main>
+      <Footer />
+    </>
+  );
 }
