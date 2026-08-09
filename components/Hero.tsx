@@ -15,9 +15,9 @@ export default function Hero() {
           <span className="text-[#3BA58F]">toda en un solo lugar</span>
         </h1>
         <p className="text-xl text-white/70 max-w-2xl mx-auto mb-10">
-          Lebenix es una plataforma de gestión clínica para nutricionistas.
-          Gestiona pacientes, agenda consultas, registra mediciones y crea
-          planes alimenticios — todo en un solo lugar, diseñado para LATAM.
+          Lebenix es una plataforma de gestión clínica para nutricionistas en
+          LATAM. Pacientes, agenda, mediciones y planes alimenticios —
+          sin saltar entre apps.
         </p>
         <a
           href="https://app.lebenix.com/register"
