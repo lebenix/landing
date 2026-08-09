@@ -17,6 +17,9 @@ export default function Navbar() {
           <Link href="/nosotros" className="hidden md:block text-white/60 hover:text-white text-sm transition-colors">
             Nosotros
           </Link>
+          <a href="https://app.lebenix.com" className="hidden md:block text-white/60 hover:text-white text-sm transition-colors">
+            Iniciar sesión
+          </a>
           <a
             href="https://app.lebenix.com/register"
             className="bg-[#3BA58F] hover:bg-[#339980] text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors"
