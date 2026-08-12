@@ -1,9 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
 @theme inline {
-  --font-sans: 'DM Sans', sans-serif;
+  --font-sans: var(--font-dm-sans), sans-serif;
   --color-dark: #1A1A2E;
   --color-primary: #3BA58F;
   --color-primary-dark: #339980;

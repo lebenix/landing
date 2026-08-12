@@ -6,6 +6,7 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { getAllPosts, getPost, formatDate } from "@/lib/posts";
+import { APP_REGISTER_URL } from "@/lib/config";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -17,7 +18,12 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const post = getPost(slug);
+  let post: ReturnType<typeof getPost>;
+  try {
+    post = getPost(slug);
+  } catch {
+    return {};
+  }
   const url = `https://www.lebenix.com/blog/${slug}`;
   return {
     title: `${post.title} — Lebenix`,
@@ -28,7 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: post.description,
       url,
       siteName: "Lebenix",
-      locale: "es_PE",
+      locale: "es_419",
       type: "article",
       publishedTime: post.date,
       authors: ["Jair Flores"],
@@ -51,13 +57,37 @@ export default async function PostPage({ params }: Props) {
     notFound();
   }
 
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.description,
+    datePublished: post.date,
+    url: `https://www.lebenix.com/blog/${slug}`,
+    author: {
+      "@type": "Person",
+      name: "Jair Flores",
+      url: "https://www.linkedin.com/in/jkevinfg/",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Lebenix",
+      url: "https://www.lebenix.com",
+      logo: "https://www.lebenix.com/logo.png",
+    },
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
       <Navbar />
       <main className="max-w-3xl mx-auto px-6 pt-32 pb-20">
           <Link
             href="/blog"
-            className="text-sm text-[#3BA58F] hover:underline mb-8 inline-block"
+            className="text-sm text-primary hover:underline mb-8 inline-block"
           >
             ← Volver al blog
           </Link>
@@ -73,7 +103,7 @@ export default async function PostPage({ params }: Props) {
           <article className="prose prose-gray prose-lg max-w-none">
             <MDXRemote source={post.content} />
           </article>
-          <div className="mt-16 p-8 bg-[#3BA58F]/8 rounded-2xl text-center">
+          <div className="mt-16 p-8 bg-primary/8 rounded-2xl text-center">
             <p className="text-lg font-semibold text-gray-900 mb-2">
               ¿Quieres llevar tu consulta al siguiente nivel?
             </p>
@@ -81,8 +111,8 @@ export default async function PostPage({ params }: Props) {
               Lebenix es el software diseñado para nutricionistas en LATAM.
             </p>
             <a
-              href="https://app.lebenix.com/register"
-              className="inline-block bg-[#3BA58F] hover:bg-[#339980] text-white font-semibold px-6 py-3 rounded-xl transition-colors"
+              href={APP_REGISTER_URL}
+              className="inline-block bg-primary hover:bg-primary-dark text-white font-semibold px-6 py-3 rounded-xl transition-colors"
             >
               Probar gratis
             </a>

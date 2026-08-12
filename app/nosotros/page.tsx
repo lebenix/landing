@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     description: "La historia detrás de Lebenix y por qué fue construido para los nutricionistas en LATAM.",
     url: "https://www.lebenix.com/nosotros",
     siteName: "Lebenix",
-    locale: "es_PE",
+    locale: "es_419",
     type: "website",
   },
   twitter: { card: "summary_large_image", title: "Nosotros — Lebenix" },
@@ -26,11 +26,11 @@ export default function NosotrosPage() {
       <Navbar />
 
       {/* Hero */}
-      <section className="bg-[#1A1A2E] pt-32 pb-20 px-6 relative overflow-hidden">
-        <div className="absolute w-96 h-96 rounded-full bg-[#3BA58F]/6 -bottom-20 -right-20 pointer-events-none" />
-        <div className="absolute w-56 h-56 rounded-full bg-[#D4A95E]/5 top-20 right-10 pointer-events-none" />
+      <section className="bg-dark pt-32 pb-20 px-6 relative overflow-hidden">
+        <div className="absolute w-96 h-96 rounded-full bg-primary/6 -bottom-20 -right-20 pointer-events-none" />
+        <div className="absolute w-56 h-56 rounded-full bg-gold/5 top-20 right-10 pointer-events-none" />
         <div className="max-w-3xl mx-auto relative z-10">
-          <p className="text-[#3BA58F] text-sm font-semibold uppercase tracking-widest mb-4">
+          <p className="text-primary text-sm font-semibold uppercase tracking-widest mb-4">
             Nosotros
           </p>
           <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
@@ -59,7 +59,7 @@ export default function NosotrosPage() {
             </div>
             <div>
               <h2 className="text-2xl font-bold text-gray-900 mb-1">Jair Flores</h2>
-              <p className="text-[#3BA58F] font-medium mb-3">Founder & Developer</p>
+              <p className="text-primary font-medium mb-3">Founder & Developer</p>
               <a
                 href="https://www.linkedin.com/in/jkevinfg/"
                 target="_blank"

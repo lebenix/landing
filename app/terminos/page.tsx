@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     description: "Condiciones de uso del software Lebenix para nutricionistas.",
     url: "https://www.lebenix.com/terminos",
     siteName: "Lebenix",
-    locale: "es_PE",
+    locale: "es_419",
     type: "website",
   },
 };
@@ -24,10 +24,10 @@ export default function TermsPage() {
       <Navbar />
 
       {/* Hero */}
-      <section className="bg-[#1A1A2E] pt-32 pb-20 px-6 relative overflow-hidden">
-        <div className="absolute w-96 h-96 rounded-full bg-[#3BA58F]/6 -bottom-20 -right-20 pointer-events-none" />
+      <section className="bg-dark pt-32 pb-20 px-6 relative overflow-hidden">
+        <div className="absolute w-96 h-96 rounded-full bg-primary/6 -bottom-20 -right-20 pointer-events-none" />
         <div className="max-w-3xl mx-auto relative z-10">
-          <p className="text-[#3BA58F] text-sm font-semibold uppercase tracking-widest mb-4">
+          <p className="text-primary text-sm font-semibold uppercase tracking-widest mb-4">
             Legal
           </p>
           <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-4">

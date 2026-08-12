@@ -33,7 +33,7 @@ export default function Problem() {
           {PROBLEMS.map((problem) => (
             <div
               key={problem.title}
-              className="bg-white rounded-2xl p-6 border border-gray-100 border-t-2 border-t-[#3BA58F]"
+              className="bg-white rounded-2xl p-6 border border-gray-100 border-t-2 border-t-primary"
             >
               <h3 className="font-semibold text-gray-900 mb-2">
                 {problem.title}
