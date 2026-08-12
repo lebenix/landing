@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     description: "Recursos para nutricionistas en LATAM: práctica clínica, tecnología y gestión del consultorio.",
     url: "https://www.lebenix.com/blog",
     siteName: "Lebenix",
-    locale: "es_PE",
+    locale: "es_419",
     type: "website",
   },
   twitter: { card: "summary_large_image", title: "Blog — Lebenix" },
@@ -46,13 +46,13 @@ export default function BlogPage() {
                 <p className="text-xs text-gray-400 font-medium uppercase tracking-wide">
                   {formatDate(post.date)} · {post.readingTime} de lectura
                 </p>
-                <h2 className="text-xl font-bold text-gray-900 group-hover:text-[#3BA58F] transition-colors leading-snug">
+                <h2 className="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors leading-snug">
                   {post.title}
                 </h2>
                 <p className="text-gray-500 text-sm leading-relaxed">
                   {post.description}
                 </p>
-                <span className="text-[#3BA58F] text-sm font-medium mt-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                <span className="text-primary text-sm font-medium mt-1 opacity-0 group-hover:opacity-100 transition-opacity">
                   Leer artículo →
                 </span>
               </Link>

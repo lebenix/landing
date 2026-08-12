@@ -2,10 +2,11 @@
 import Link from "next/link";
 import Image from "next/image";
 import logo from "@/public/logo.png";
+import { APP_URL, APP_REGISTER_URL } from "@/lib/config";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#1A1A2E] text-white/50">
+    <footer className="bg-dark text-white/50">
       <div className="max-w-6xl mx-auto px-6 py-12">
         {/* Top row */}
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-10 mb-10">
@@ -24,10 +25,10 @@ export default function Footer() {
           <div className="flex gap-12 text-sm">
             <div className="flex flex-col gap-3">
               <span className="text-white font-semibold text-xs uppercase tracking-wider mb-1">Producto</span>
-              <a href="https://app.lebenix.com/register" className="hover:text-white transition-colors">
+              <a href={APP_REGISTER_URL} className="hover:text-white transition-colors">
                 Probar gratis
               </a>
-              <a href="https://app.lebenix.com" className="hover:text-white transition-colors">
+              <a href={APP_URL} className="hover:text-white transition-colors">
                 Iniciar sesión
               </a>
             </div>

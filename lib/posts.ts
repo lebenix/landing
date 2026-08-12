@@ -13,6 +13,13 @@ export function formatDate(isoDate: string): string {
   }).format(new Date(year, month - 1, day));
 }
 
+// 200 palabras por minuto — estándar de lectura en español
+function calcReadingTime(content: string): string {
+  const words = content.trim().split(/\s+/).length;
+  const minutes = Math.max(1, Math.round(words / 200));
+  return `${minutes} min`;
+}
+
 const POSTS_DIR = path.join(process.cwd(), "content/blog");
 
 export interface PostMeta {
@@ -34,13 +41,13 @@ export function getAllPosts(): PostMeta[] {
     .map((file) => {
       const slug = file.replace(".mdx", "");
       const raw = fs.readFileSync(path.join(POSTS_DIR, file), "utf-8");
-      const { data } = matter(raw);
+      const { data, content } = matter(raw);
       return {
         slug,
         title: data.title,
         description: data.description,
         date: data.date,
-        readingTime: data.readingTime ?? "5 min",
+        readingTime: calcReadingTime(content),
       };
     })
     .sort((a, b) => (a.date > b.date ? -1 : 1));
@@ -54,7 +61,7 @@ export function getPost(slug: string): Post {
     title: data.title,
     description: data.description,
     date: data.date,
-    readingTime: data.readingTime ?? "5 min",
+    readingTime: calcReadingTime(content),
     content,
   };
 }

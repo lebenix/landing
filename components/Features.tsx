@@ -45,7 +45,7 @@ export default function Features() {
               key={feature.title}
               className="bg-gray-50 rounded-2xl p-8 border border-gray-100"
             >
-              <div className="w-12 h-12 bg-[#3BA58F]/10 rounded-xl flex items-center justify-center mb-5 text-2xl">
+              <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-5 text-2xl">
                 {feature.icon}
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
