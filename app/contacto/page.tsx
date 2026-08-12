@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     description: "Escríbenos para soporte, prensa o cualquier consulta sobre Lebenix.",
     url: "https://www.lebenix.com/contacto",
     siteName: "Lebenix",
-    locale: "es_PE",
+    locale: "es_419",
     type: "website",
   },
   twitter: { card: "summary_large_image", title: "Contacto — Lebenix" },
@@ -23,7 +23,7 @@ export default function ContactoPage() {
     <>
       <Navbar />
       <main className="max-w-2xl mx-auto px-6 pt-32 pb-24 min-h-[80vh]">
-        <p className="text-[#3BA58F] text-sm font-semibold uppercase tracking-widest mb-4">
+        <p className="text-primary text-sm font-semibold uppercase tracking-widest mb-4">
           Contacto
         </p>
         <h1 className="text-4xl font-bold text-gray-900 mb-4">
@@ -34,7 +34,7 @@ export default function ContactoPage() {
         </p>
         <a
           href="mailto:contacto@lebenix.com"
-          className="text-2xl font-semibold text-[#3BA58F] hover:underline"
+          className="text-2xl font-semibold text-primary hover:underline"
         >
           contacto@lebenix.com
         </a>
