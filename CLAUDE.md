@@ -1,5 +1,3 @@
-@AGENTS.md
-
 # Lebenix Landing — Documento Técnico
 
 ## Descripción
@@ -164,22 +162,10 @@ La landing comparte dominio principal `lebenix.com` con la app en subdominio `ap
 
 ---
 
-## Decisiones técnicas relevantes
+## Decisiones técnicas
 
-**next/font en vez de @import CSS**
-DM Sans se auto-hostea. Sin petición a Google Fonts, sin FOUC, mejor Core Web Vitals.
-
-**Tokens de Tailwind v4 (@theme inline)**
-Los colores de la marca se definen una sola vez en `globals.css`. Si cambia un color, se actualiza en un lugar.
-
-**readingTime automático**
-Se calcula desde el contenido del MDX (200 palabras/min). No depende de frontmatter manual.
-
-**generateStaticParams en blog/[slug]**
-Los posts se renderizan en build time (SSG). Sin runtime para páginas de blog.
-
-**generateMetadata con try/catch en blog/[slug]**
-Si el slug no existe, retorna `{}` y Next.js muestra la 404. Sin este manejo, daría 500.
-
-**lib/config.ts para URLs externas**
-Centraliza APP_URL y APP_REGISTER_URL. Si cambia la URL de la app, se actualiza en un solo lugar.
+- `next/font`: DM Sans auto-hosteado, sin petición externa a Google Fonts.
+- Tailwind v4 `@theme inline`: colores de marca en un solo lugar (`globals.css`).
+- `readingTime` calculado desde contenido MDX (200 palabras/min) — no va en frontmatter.
+- `blog/[slug]` usa `generateStaticParams` (SSG) y `generateMetadata` con try/catch (slug inválido → 404, no 500).
+- `lib/config.ts` centraliza `APP_URL` y `APP_REGISTER_URL`.
