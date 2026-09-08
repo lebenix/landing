@@ -1,33 +1,55 @@
 # Lebenix Landing
 
-Landing pública de Lebenix (`www.lebenix.com`): marketing, SEO y blog de contenido para nutricionistas en LATAM.
+Landing pública de Lebenix (`www.lebenix.com`): marketing, SEO y blog para nutricionistas en LATAM.
 
-La app vive en `app.lebenix.com`. Este repo no necesita la misma rigurosidad técnica que el frontend de la app: priorizar claridad, velocidad, buen criterio editorial y cambios simples.
+La app vive en `app.lebenix.com`. Este repo prioriza claridad, velocidad, criterio editorial y cambios simples; no requiere la misma rigurosidad técnica que el frontend de la app.
+
+**Rule:** do not add `Co-Authored-By: Claude` to commits.
+
+## Git — Absolute Rules
+
+- **Never commit directly to `main`.**
+- `development` → day-to-day work.
+- `main` → production deploy only.
+- Push to `main` → GitHub Actions auto-deploys to production.
+- **Never commit without explicit user confirmation.** Wait for "yes" or "commit it" before running `git commit`.
+- **Never use `git commit --amend`.** Fix mistakes with a new commit.
+- **Never `git push --force` to `main` or `development`.**
+
+```bash
+git checkout main && git pull
+git merge --ff-only development
+git push origin main
+
+# If branches diverged:
+git checkout main && git pull
+git merge development -m "feat|fix|chore: description"
+git push origin main
+
+# Sync back after every deploy:
+git checkout development && git merge --ff-only main && git push origin development
+```
+
+Branch naming: `feat/`, `fix/`, `hotfix/`, `chore/`, `test/`.
+
+**`git add` pathspec trap:** stage deleted and modified files separately, or verify with `git status` before committing.
 
 ## Producto
 
-Lebenix es un SaaS de gestión clínica para nutricionistas en LATAM.
+Lebenix es un SaaS de gestión clínica para nutricionistas en LATAM: pacientes, historial clínico, agenda, mediciones, planes alimenticios, alimentos, recetas, plantillas e integración opcional con Google Calendar.
 
-Ayuda a centralizar:
-
-- Pacientes e historial clínico
-- Agenda de citas
-- Mediciones corporales y evolución
-- Planes alimenticios
-- Integración opcional con Google Calendar
-
-No inventar funcionalidades que no existan en el producto.
+No inventar funcionalidades que no existan.
 
 ## Voz Editorial
 
-Escribir en español latinoamericano, con tono claro, profesional y cercano.
+Escribir en español latinoamericano, claro, profesional y cercano.
 
-La voz debe sentirse:
+Tono:
 
 - práctica y directa
 - útil para nutricionistas independientes o centros pequeños
 - enfocada en problemas reales de consulta
-- confiable, sin sonar académica de más
+- confiable sin sonar demasiado académica
 - comercial solo cuando tenga sentido
 
 Evitar:
@@ -38,13 +60,13 @@ Evitar:
 - relleno genérico de marketing
 - cifras, estudios o datos inventados
 
-Lebenix debe aparecer como una solución natural al problema, no como una interrupción publicitaria.
+Lebenix debe aparecer como solución natural, no como interrupción publicitaria.
 
 ## Blog
 
 Los artículos viven en `content/blog/*.mdx`.
 
-Cada post debe tener solo este frontmatter:
+Frontmatter obligatorio:
 
 ```mdx
 ---
@@ -54,35 +76,25 @@ date: "YYYY-MM-DD"
 ---
 ```
 
-Reglas para artículos:
+Reglas:
 
 - El slug sale del nombre del archivo.
 - No agregar `readingTime`; se calcula automáticamente.
 - Usar títulos claros, buscables y naturales.
 - Escribir para búsquedas reales de nutricionistas en LATAM.
-- Mantener una estructura simple: problema, contexto, recomendaciones y cierre.
-- Cerrar con una mención breve a Lebenix y CTA suave hacia `https://app.lebenix.com/register`.
-- Si el artículo usa datos, normas, estudios o recomendaciones clínicas específicas, verificarlos antes de escribirlos.
+- Estructura recomendada: problema, contexto, recomendaciones y cierre.
+- Cerrar con mención breve a Lebenix y CTA suave hacia `https://app.lebenix.com/register`.
+- Verificar datos, normas, estudios o recomendaciones clínicas específicas antes de escribirlos.
 
 ## SEO Mínimo
 
-Para posts:
-
-- `title` debe ser específico y útil.
-- `description` debe resumir el beneficio del artículo.
-- El listado del blog y el sitemap se actualizan automáticamente.
-
-Para páginas nuevas:
-
-- Agregar `metadata` básica: `title`, `description` y canonical.
-- Usar URLs públicas con `https://www.lebenix.com`.
+- En posts, cuidar `title` y `description`.
+- El blog y sitemap se actualizan automáticamente.
+- En páginas nuevas, agregar `metadata` básica y canonical con `https://www.lebenix.com`.
 
 ## Código
 
-Mantener el código simple y parecido al estilo existente.
-
 - Usar Tailwind y los tokens definidos en `app/globals.css`.
-- No hardcodear URLs de la app en componentes; usar `lib/config.ts`.
+- Usar `lib/config.ts` para URLs de la app en componentes.
 - Solo usar `"use client"` cuando haga falta estado o eventos.
-- Si el cambio es solo un artículo MDX, no hace falta sobrerrevisar todo el proyecto.
 - Para cambios en TS/TSX, correr `npm run lint` cuando sea razonable.
