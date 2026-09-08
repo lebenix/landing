@@ -5,59 +5,6 @@ Landing page pública de Lebenix en `www.lebenix.com`.
 Marketing, SEO y blog de contenido para nutricionistas en LATAM.
 Separada del frontend de la app (`app.lebenix.com`) y la API (`api.lebenix.com`).
 
----
-
-## Stack
-
-```
-Framework:   Next.js 16 (App Router) + TypeScript 5 (strict)
-Estilos:     Tailwind CSS v4 + @tailwindcss/typography
-Fuente:      DM Sans via next/font/google (auto-hosted, sin petición externa)
-Blog:        next-mdx-remote + gray-matter (MDX desde filesystem)
-OG image:    next/og (ImageResponse dinámica)
-```
-
----
-
-## Estructura de carpetas
-
-```
-landing/
-├── app/
-│   ├── layout.tsx              ← Root layout: metadata global, JSON-LD Organization, DM Sans
-│   ├── page.tsx                ← Home: Navbar + Hero + Problem + Features + CtaBanner + Footer
-│   ├── globals.css             ← Tailwind + tokens de color y fuente (@theme inline)
-│   ├── robots.ts               ← /robots.txt — permite todos los crawlers
-│   ├── sitemap.ts              ← /sitemap.xml — estático + posts del blog dinámicamente
-│   ├── opengraph-image.tsx     ← OG image dinámica 1200×630 (next/og) — se aplica a todo el sitio
-│   ├── not-found.tsx           ← Página 404 personalizada con CTA
-│   ├── icon.png                ← Favicon
-│   ├── blog/
-│   │   ├── page.tsx            ← Listado de posts (getAllPosts)
-│   │   └── [slug]/page.tsx     ← Post individual: SSG via generateStaticParams, JSON-LD Article
-│   ├── nosotros/page.tsx       ← Historia del founder
-│   ├── contacto/page.tsx       ← Email de contacto
-│   ├── privacidad/page.tsx     ← Política de privacidad (requerido para Google OAuth)
-│   └── terminos/page.tsx       ← Términos de servicio
-│
-├── components/
-│   ├── Navbar.tsx              ← "use client" — menú desktop + hamburger mobile con useState
-│   ├── Hero.tsx                ← Sección hero oscura con CTA principal
-│   ├── Problem.tsx             ← 3 pain points en tarjetas
-│   ├── Features.tsx            ← 4 features en grid 2×2
-│   ├── CtaBanner.tsx           ← Banner CTA de cierre (fondo primary)
-│   └── Footer.tsx              ← Footer oscuro con links
-│
-├── lib/
-│   ├── config.ts               ← Constantes globales: SITE_URL, APP_URL, APP_REGISTER_URL
-│   └── posts.ts                ← Utilidades de blog: getAllPosts, getPost, formatDate, calcReadingTime
-│
-└── content/
-    └── blog/                   ← Archivos .mdx de posts — uno por artículo
-```
-
----
-
 ## Convenciones de código
 
 ### Colores — siempre usar tokens, nunca hex hardcodeados
