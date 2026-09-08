@@ -1,118 +1,88 @@
-# Lebenix Landing — Documento Técnico
+# Lebenix Landing
 
-## Descripción
-Landing page pública de Lebenix en `www.lebenix.com`.
-Marketing, SEO y blog de contenido para nutricionistas en LATAM.
-Separada del frontend de la app (`app.lebenix.com`) y la API (`api.lebenix.com`).
+Landing pública de Lebenix (`www.lebenix.com`): marketing, SEO y blog de contenido para nutricionistas en LATAM.
 
-## Convenciones de código
+La app vive en `app.lebenix.com`. Este repo no necesita la misma rigurosidad técnica que el frontend de la app: priorizar claridad, velocidad, buen criterio editorial y cambios simples.
 
-### Colores — siempre usar tokens, nunca hex hardcodeados
+## Producto
 
-Los tokens están definidos en `globals.css`:
+Lebenix es un SaaS de gestión clínica para nutricionistas en LATAM.
 
-```css
-@theme inline {
-  --color-dark: #1A1A2E;
-  --color-primary: #3BA58F;
-  --color-primary-dark: #339980;
-  --color-gold: #D4A95E;
-}
-```
+Ayuda a centralizar:
 
-Uso correcto en componentes:
+- Pacientes e historial clínico
+- Agenda de citas
+- Mediciones corporales y evolución
+- Planes alimenticios
+- Integración opcional con Google Calendar
 
-```tsx
-// ✅ correcto
-<div className="bg-dark text-primary hover:bg-primary-dark" />
+No inventar funcionalidades que no existan en el producto.
 
-// ❌ incorrecto
-<div className="bg-[#1A1A2E] text-[#3BA58F] hover:bg-[#339980]" />
-```
+## Voz Editorial
 
-### URLs de la app — siempre desde lib/config.ts
+Escribir en español latinoamericano, con tono claro, profesional y cercano.
 
-```ts
-import { APP_URL, APP_REGISTER_URL, SITE_URL } from "@/lib/config";
+La voz debe sentirse:
 
-// APP_URL          → https://app.lebenix.com
-// APP_REGISTER_URL → https://app.lebenix.com/register
-// SITE_URL         → https://www.lebenix.com
-```
+- práctica y directa
+- útil para nutricionistas independientes o centros pequeños
+- enfocada en problemas reales de consulta
+- confiable, sin sonar académica de más
+- comercial solo cuando tenga sentido
 
-Nunca escribir estas URLs hardcodeadas en componentes o páginas.
+Evitar:
 
-### Server Components por defecto
+- promesas exageradas
+- afirmaciones médicas fuertes sin sustento
+- tono de venta agresivo
+- relleno genérico de marketing
+- cifras, estudios o datos inventados
 
-Solo agregar `"use client"` cuando sea estrictamente necesario (estado, eventos).
-Actualmente solo `Navbar.tsx` es Client Component.
+Lebenix debe aparecer como una solución natural al problema, no como una interrupción publicitaria.
 
-### Metadata SEO
+## Blog
 
-Cada página exporta su propio `metadata` con:
-- `title`, `description`
-- `alternates.canonical`
-- `openGraph` completo con `locale: "es_419"`
-- `twitter.card: "summary_large_image"`
+Los artículos viven en `content/blog/*.mdx`.
 
-El `metadataBase` está en `layout.tsx` — no repetir en páginas individuales.
-
----
-
-## Blog — cómo agregar un post
-
-1. Crear archivo en `content/blog/mi-slug.mdx`
-2. Agregar frontmatter:
+Cada post debe tener solo este frontmatter:
 
 ```mdx
 ---
 title: "Título del artículo"
 description: "Descripción corta para SEO y listado."
-date: "2026-MM-DD"
+date: "YYYY-MM-DD"
 ---
-
-Contenido en Markdown...
 ```
 
-3. El slug se deriva del nombre del archivo.
-4. `readingTime` se calcula automáticamente (200 palabras/min) — no incluir en frontmatter.
-5. El sitemap y el listado del blog se actualizan automáticamente en el próximo build.
-6. Actualizar `lastModified` de `/blog` en `sitemap.ts` si es necesario.
+Reglas para artículos:
 
----
+- El slug sale del nombre del archivo.
+- No agregar `readingTime`; se calcula automáticamente.
+- Usar títulos claros, buscables y naturales.
+- Escribir para búsquedas reales de nutricionistas en LATAM.
+- Mantener una estructura simple: problema, contexto, recomendaciones y cierre.
+- Cerrar con una mención breve a Lebenix y CTA suave hacia `https://app.lebenix.com/register`.
+- Si el artículo usa datos, normas, estudios o recomendaciones clínicas específicas, verificarlos antes de escribirlos.
 
-## SEO — qué está configurado
+## SEO Mínimo
 
-```
-robots.txt          → /robots.ts — permite todos los crawlers
-sitemap.xml         → /sitemap.ts — todas las páginas + posts dinámicamente
-OG image            → /opengraph-image.tsx — dinámica, 1200×630
-metadataBase        → https://www.lebenix.com (en layout.tsx)
-JSON-LD             → Organization en layout.tsx (todo el sitio)
-                       Article en blog/[slug]/page.tsx (por post)
-Google Search       → verification en layout.tsx metadata
-Canonical URLs      → declarado en cada página
-locale OG           → es_419 (español latinoamericano)
-```
+Para posts:
 
----
+- `title` debe ser específico y útil.
+- `description` debe resumir el beneficio del artículo.
+- El listado del blog y el sitemap se actualizan automáticamente.
 
-## Deploy
+Para páginas nuevas:
 
-```
-Plataforma:  pendiente de configurar (lebenix.com → apunta a la landing)
-Build:       next build
-Deploy:      push a main → GitHub Actions auto-deploy
-```
+- Agregar `metadata` básica: `title`, `description` y canonical.
+- Usar URLs públicas con `https://www.lebenix.com`.
 
-La landing comparte dominio principal `lebenix.com` con la app en subdominio `app.lebenix.com`.
+## Código
 
----
+Mantener el código simple y parecido al estilo existente.
 
-## Decisiones técnicas
-
-- `next/font`: DM Sans auto-hosteado, sin petición externa a Google Fonts.
-- Tailwind v4 `@theme inline`: colores de marca en un solo lugar (`globals.css`).
-- `readingTime` calculado desde contenido MDX (200 palabras/min) — no va en frontmatter.
-- `blog/[slug]` usa `generateStaticParams` (SSG) y `generateMetadata` con try/catch (slug inválido → 404, no 500).
-- `lib/config.ts` centraliza `APP_URL` y `APP_REGISTER_URL`.
+- Usar Tailwind y los tokens definidos en `app/globals.css`.
+- No hardcodear URLs de la app en componentes; usar `lib/config.ts`.
+- Solo usar `"use client"` cuando haga falta estado o eventos.
+- Si el cambio es solo un artículo MDX, no hace falta sobrerrevisar todo el proyecto.
+- Para cambios en TS/TSX, correr `npm run lint` cuando sea razonable.
